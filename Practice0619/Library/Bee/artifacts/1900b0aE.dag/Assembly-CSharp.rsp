@@ -373,7 +373,6 @@
 -analyzer:"C:/Program Files/2022.3.7f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/2022.3.7f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Asset Packs/Verpha/Hierarchy Designer/Runtime/Scripts/HierarchyDesignerFolder.cs"
-"Assets/Game/Core/IAction.cs"
 "Assets/Game/ETC/TutorialInfo/Scripts/Readme.cs"
 "Assets/Scripts/Combat/CombatTarget.cs"
 "Assets/Scripts/Combat/Fighter.cs"
@@ -382,6 +381,7 @@
 "Assets/Scripts/Control/PlayerController.cs"
 "Assets/Scripts/Core/ActionSchduler.cs"
 "Assets/Scripts/Core/Health.cs"
+"Assets/Scripts/Core/IAction.cs"
 "Assets/Scripts/Movement/Mover.cs"
 -langversion:9.0
 
