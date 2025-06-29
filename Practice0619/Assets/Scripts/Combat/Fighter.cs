@@ -51,7 +51,7 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("attack");
         }
 
-        // Animation Event
+        // 애니메이션 이벤트
         void Hit()
         {
             if (target == null) { return; }
@@ -80,6 +80,7 @@ namespace RPG.Combat
         {
             StopAttack();
             target = null;
+            GetComponent<Mover>().Cancel();
         }
 
         private void StopAttack()
