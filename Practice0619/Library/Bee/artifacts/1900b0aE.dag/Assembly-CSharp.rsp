@@ -374,6 +374,7 @@
 -analyzer:"C:/Program Files/2022.3.7f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Asset Packs/Verpha/Hierarchy Designer/Runtime/Scripts/HierarchyDesignerFolder.cs"
 "Assets/Game/ETC/TutorialInfo/Scripts/Readme.cs"
+"Assets/Scripts/Cinematics/Cinematic Trigger.cs"
 "Assets/Scripts/Combat/CombatTarget.cs"
 "Assets/Scripts/Combat/Fighter.cs"
 "Assets/Scripts/Control/AIController.cs"
