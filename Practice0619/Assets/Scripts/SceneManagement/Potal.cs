@@ -1,13 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 namespace RPG.SceneManagement
 {
     public class Potal : MonoBehaviour
     {
+        enum DestinationIdentifier 
+        {
+            A, B, C, D, E
+        }
+
         [SerializeField] int sceneToLoad = -1;
+        [SerializeField] Transform spawnPoint;
+        [SerializeField] DestinationIdentifier destination;
+        [SerializeField] float fadeOutTime = 1f;
+        [SerializeField] float fadeInTime = 2f;
+        [SerializeField] float fadeWaitTime = .5f;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -19,8 +31,46 @@ namespace RPG.SceneManagement
 
         private IEnumerator Transition()
         {
-            SceneManager.LoadScene(sceneToLoad);
-            yield return null;
+            if(sceneToLoad < 0)
+            {
+                Debug.LogError("Scene to Load not set");
+                yield break;
+            }
+            DontDestroyOnLoad(gameObject);
+
+            Fader fader = FindObjectOfType<Fader>();
+
+            yield return fader.FadeOut(fadeOutTime);
+            yield return SceneManager.LoadSceneAsync(sceneToLoad);
+
+            Potal otherPortal = GetOtherPotal();
+            UpdatePlayer(otherPortal);
+
+            yield return new WaitForSeconds(fadeWaitTime);
+            yield return fader.FadeIn(fadeInTime);
+
+            Destroy(gameObject);
+        }
+
+        private void UpdatePlayer(Potal otherPortal)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            player.GetComponent<NavMeshAgent>().Warp(otherPortal.spawnPoint.position);
+            player.transform.rotation = otherPortal.spawnPoint.rotation;
+
+        }
+
+        private Potal GetOtherPotal()
+        {
+            foreach (Potal potal in FindObjectsOfType<Potal>())
+            {
+                if (potal == this) continue;
+
+                if (potal.destination != destination) continue;
+
+                return potal;
+            }
+            return null;
         }
     }
 
