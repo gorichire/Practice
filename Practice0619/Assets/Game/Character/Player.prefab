@@ -2775,6 +2775,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5611467420579238298, guid: c8837be8daebe76499b6112c04439f13,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6196763739105612835, guid: c8837be8daebe76499b6112c04439f13,
         type: 3}
       propertyPath: maxSpeed
