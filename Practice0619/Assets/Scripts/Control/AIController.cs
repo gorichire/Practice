@@ -70,8 +70,8 @@ namespace RPG.Control
             {
                 if (AtWayPoint())
                 {
-                    timeSinceArrivedAtWaypoint = 0;
                     CycleWayPoint();
+                    timeSinceArrivedAtWaypoint = 0;
                 }
                 nextPosition = GetCurrentWayPoint();
             }
@@ -111,8 +111,8 @@ namespace RPG.Control
 
         private bool InAttackRangeOfPlayer()
         {
-            float distanceToPlyaer = Vector3.Distance(transform.position, player.transform.position);
-            return distanceToPlyaer < chaseDistance;
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            return distanceToPlayer < chaseDistance;
         }
         
         // Called by Unity
